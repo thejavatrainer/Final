@@ -1,0 +1,11 @@
+Use the api.exchangeratesapi.io (https://api.exchangeratesapi.io/latest?symbols=RON ) to retrieve the rate of exchange between EUR and RON, and trigger alerts when the rate changes, by interrogating the API each minute for the latest rates.
+
+You should separate the concerns of your application classes by having each class handle one responsibility. Example:
+
+CurrencyRatesAlertingEngine – triggering the api searches and detects when notifications need to be sent.
+CurrencyRatesService – (or query service) – a service that performs the actual API call and parses the result into something meaningful.
+CurrencyChangeListener – a class where you can customize what to do when the rates changes.
+
+Hint: For HTTP call you can use spring-web library, RestTemplate() class.
+
+Make unit tests for all classes. Mock the dependencies (eg, CurrencyRateService and CurrencyChangeListener for the Engine).
